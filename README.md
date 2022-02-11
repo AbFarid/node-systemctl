@@ -1,2 +1,2 @@
-# node-systemd
+# node-systemctl
 Hacky systemd interface for NodeJS
