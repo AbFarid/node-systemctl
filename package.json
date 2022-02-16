@@ -1,0 +1,33 @@
+{
+  "name": "node-systemctl",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Systemd interface for NodeJS",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbFarid/node-systemctl.git"
+  },
+  "keywords": [
+    "systemd",
+    "systemctl",
+    "linux",
+    "arch",
+    "centos",
+    "debian",
+    "fedora",
+    "mint",
+    "manjaro",
+    "ubuntu"
+
+  ],
+  "author": "Farid Abbasbayli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbFarid/node-systemctl/issues"
+  },
+  "homepage": "https://github.com/AbFarid/node-systemctl#readme"
+}
