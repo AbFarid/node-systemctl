@@ -1,7 +1,7 @@
 # node-systemctl
-Control your systemd services from the comfort of your NodeJS script using this hacky interface module.
+Control your `systemd` services from the comfort of your NodeJS script, using this hacky interface module.
 
-## installation
+## Installation
 
 ```
 npm i node-systemctl
@@ -19,7 +19,7 @@ Note: examples assume [ES6 modules enabled](https://www.geeksforgeeks.org/how-to
 
 
 ### Quick start example
-```
+```js
 import SystemService from 'node-systemctl'
 
 // construct the service
@@ -35,7 +35,7 @@ new SystemService('custom-unit').then(async unit => {
 
 If your service requires root privilages (or you are getting the `Interactive authentication required` error) pass a truthy value as the second argument:
 
-```
+```js
 const superUnit = await new SystemService('custom-unit', true)
 ```
 
