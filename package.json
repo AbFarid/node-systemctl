@@ -4,7 +4,7 @@
     "start": "node index.js"
   },
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Systemd interface for NodeJS",
   "main": "index.js",
   "repository": {
@@ -22,7 +22,6 @@
     "mint",
     "manjaro",
     "ubuntu"
-
   ],
   "author": "Farid Abbasbayli",
   "license": "ISC",

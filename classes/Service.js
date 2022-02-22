@@ -1,5 +1,5 @@
 import util from 'util'
-import { exec as _exec } from 'child_process'
+import { exec as _exec, spawn } from 'child_process'
 import { uncapitalize } from '../helper/utils.js'
 
 const exec = util.promisify(_exec)
@@ -32,7 +32,7 @@ export default class Service {
   
   constructor(serviceName, sudo = false) {
     this.name = serviceName
-    this.cmd = `${sudo ? 'sudo ' : ''} systemctl`
+    this.cmd = `${sudo ? 'sudo ' : ''}systemctl`
 
     return this.#init()
   }
@@ -86,6 +86,11 @@ export default class Service {
     return unitFileState == 'enabled' || unitFileState == 'static'
   }
 
+  get status() {
+    const { activeState, subState } = this.props
+    return `${activeState} (${subState})`
+  }
+
   refresh = this.#getProps
 
   start = this.restart
@@ -125,9 +130,19 @@ export default class Service {
       .catch(errorHandler)
     
     if (error) throw Error(error.message)
-      
+    
     await this.#getProps()
     return true
+  }
+  
+  async edit() {
+    return new Promise(resolve => {
+      const params = ['systemctl', 'edit', '--full', this.name]
+      
+      spawn('sudo', params, { stdio: 'inherit' })
+        .on('close', code => resolve(code))
+    })
+
   }
   
 }

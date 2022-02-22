@@ -47,9 +47,11 @@ Note: Following methods are async, use `await` if you need to wait for them to f
 - `stop()` - Stops the service. Equivalent of `systemctl stop <service>`.  
 - `enable()` - Enables start at boot. Equivalent of `systemctl enable <service>`.  
 - `disable()` - Disables start at boot. Equivalent of `systemctl disable <service>`.  
+- `edit()` - Opens the unit file in an editor. Equivalent of `systemctl edit --full <service>`. (Only for use in a CLI environment)  
 
 ### Getters
 - `isActive: boolean` - Returns `true` if the service is running, i.e., the following are both true:
   - service `ActiveState` is `active`
   - service `SubState` is `running`
-- `isEnabled: boolean` - Returns `true` if service start at boot is enabled, i.e., `UnitFileState` is `enabled` or `static`. 
+- `isEnabled: boolean` - Returns `true` if service start at boot is enabled, i.e., `UnitFileState` is `enabled` or `static`.
+- `status: string` - Returns service state as would be displayed in output of `systemctl status`. Ex.: `active (running)`
